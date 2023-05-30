@@ -1,12 +1,12 @@
+import React, { useContext, useState } from 'react'
 import Tahir from '../home/img/avatar.png'
 import Mlist from '../../Mlist'
 import'../../styles.css'
-import { useContext } from 'react'
 import ThemeContext from '../../component/context/ThemeContext'
 
 
 const Home = () => {
-
+const [number,setNUmber]=useState(0);
   const {theme}=useContext(ThemeContext)
   
   return (
@@ -25,10 +25,14 @@ const Home = () => {
       
     </section>
     <section id="api-sec w-full h-auto">
-      <div className="container w-3/4"></div>
+      <div className="container w-3/4">
+<button onClick={()=>{setNUmber(number+1)}}>
+  {number}
+</button>
+      </div>
     </section>
     </>
   )
 }
 
-export default Home
+export default React.memo(Home)
